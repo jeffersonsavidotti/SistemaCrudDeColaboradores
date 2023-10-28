@@ -1,0 +1,18 @@
+﻿@model CadastroModel
+@{
+    ViewData["Title"] = "Confirmação apagar colaborador";
+     Layout = "_LayoutMain";
+}
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="text-center">
+            <div class="text-center">
+                <h2>Realmente deseja apagar o usuário (@Model.nome)</h2>
+            </div>
+            </br>
+            <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Painel" role="button">Cancelar exclusão</a>
+            <a class="btn btn-danger btn-block" asp-action="Apagar" asp-controller="Painel" asp-route-id="@Model.Id" role="button">Confirmar exclusão</a>
+        </div>
+    </section>
+</main>

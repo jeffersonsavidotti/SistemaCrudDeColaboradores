@@ -1,0 +1,100 @@
+﻿@model List<CadastroModel>
+@{
+    ViewData["Title"] = "Painel de Controle";
+    Layout = "_LayoutMain";
+}
+
+<style>
+    .table {
+        background-color: #f0fff0; /* Verde claro para a tabela */
+    }
+
+    th, td {
+        color: #008000; /* Verde escuro para texto */
+    }
+
+    .btn-success {
+        background-color: #008000; /* Verde escuro para botões de sucesso */
+        border-color: #008000;
+    }
+
+        .btn-success:hover {
+            background-color: #006400; /* Verde mais escuro quando hover */
+            border-color: #006400;
+        }
+
+    .navbar {
+        background-color: #f0fff0; /* Verde claro para a barra de navegação */
+    }
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+        <div class="text-center">
+            <div class="pagetitle">
+                <h1 class="display-4">Lista de Colaboradores</h1>
+            </div>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a aria-current="page" class="btn btn-success" role="button" asp-controller="Painel" asp-action="Cadastro">Cadastrar Colaborador</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Admissão</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Salário</th>
+                        <th scope="col">Perfil</th>
+                        <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (CadastroModel funcionario in Model)
+                        {
+                            <tr>
+                                <th scope="row">@funcionario.Id</th>
+                                <td>@funcionario.nome</td>
+                                <td>@funcionario.email</td>
+                                <td>@funcionario.AdmissaoData</td>
+                                <td>@funcionario.cargo</td>
+                                <td>@funcionario.SalarioB.ToString("C")</td>
+                                <td>@(funcionario.Perfil == GeradorDeFolha.Enums.PerfilEnum.Master ? "Master" : "Padrão")</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Exemplo básico">
+                                        <a role="button" class="btn btn-success" asp-route-id="@funcionario.Id" asp-controller="Painel" asp-action="Editar">Atualizar</a>
+                                        <a role="button" class="btn btn-info" asp-route-id="@funcionario.Id" asp-controller="Painel" asp-action="GerarHolerite">Criar Holerite</a>
+                                        <a role="button" class="btn btn-danger" asp-route-id="@funcionario.Id" asp-controller="Painel" asp-action="Excluir">Excluir</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum funcionario encontrado</td></tr>
+                    }
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between">
+                <a role="button" class="btn btn-secondary" asp-controller="Home" asp-action="Index"> Voltar</a>
+            </div>
+        </div>
+    </section>
+</main>

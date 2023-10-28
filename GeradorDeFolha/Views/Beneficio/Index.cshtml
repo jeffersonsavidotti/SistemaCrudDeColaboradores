@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Consulta Benefício";
+    Layout = "_LayoutMain";
+}
+<style>
+    .table {
+        background-color: #f0fff0; /* Verde claro para a tabela */
+    }
+
+    th, td {
+        color: #008000; /* Verde escuro para texto */
+    }
+
+    .btn-success {
+        background-color: #008000; /* Verde escuro para botões de sucesso */
+        border-color: #008000;
+    }
+
+        .btn-success:hover {
+            background-color: #006400; /* Verde mais escuro quando hover */
+            border-color: #006400;
+        }
+
+</style>
+<main id="main" class="main">
+    <div class="text-center">
+        <div class="pagetitle">
+            <h1 class="display-4">Seus Cartões de Benefício</h1>
+        </div>
+        <section class="section">
+            <div class="row">
+                <div class="text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row bd-highlight mb-3">
+                                <h5 class="card-title">Cartões</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cartão Disponível <img style="width:40;height:40" src="~/beneficio.png" width="40" height="40"></h5>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Cartão VeroUnip</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Saldo R$535,86</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Data da Recarga: Todo dia 01</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tipo do Beneficio: Alimentação</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cartão Disponível <img style="width:40;height:40" src="~/beneficio.png" width="40" height="40"></h5>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Transporte Fast</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Saldo R$123,45</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Data da Recarga: Todo dia 15</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tipo do Benefício: Transporte</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex flex-row bd-highlight mb-3">
+                                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary"> Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

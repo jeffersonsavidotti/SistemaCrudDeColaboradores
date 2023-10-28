@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Seus Holerites";
+    Layout = "_LayoutMain";
+}
+
+@model HoleriteModel  
+<!-- Supondo que você tenha um modelo chamado SeusHoleritesModel que contém a lista de recibos -->
+
+<style>
+    /* Estilos CSS para a formatação da tabela */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f0fff0; /* Verde claro para a tabela */
+    }
+
+    th, td {
+        border: 1px solid #008000; /* Verde escuro para as bordas */
+        text-align: left;
+        padding: 8px;
+        color: #008000; /* Verde escuro para texto */
+    }
+
+    tr:nth-child(even) {
+        background-color: #d0ffd0; /* Verde claro para linhas pares */
+    }
+
+    .pagetitle {
+        text-align: center;
+    }
+
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+        <div class="text-center">
+            <div class="pagetitle">
+                <h1 class="display-4">Seus Holerites</h1>
+            </div>
+
+            <!--if (Model.Recibos != null && Model.Recibos.Any())
+            {-->
+                <table class="text-center">
+                    <thead>
+                        <tr class="">
+                            <th scope="col"><a href="/Holerith/Painel?sort=data&amp;sortdir=ASC">Data</a></th>
+                            <th scope="col"><a href="/Holerith/Painel?sort=nomeCalc&amp;sortdir=ASC">Tipo Pagamento</a></th>
+                            <th scope="col"><a href="/Holerith/Painel?sort=valor&amp;sortdir=ASC">Valor R$</a></th>
+                            <th scope="col"><a href="/Holerith/Painel?sort=Visualizar+Documento&amp;sortdir=ASC">Visualizar Holerite</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--foreach (var recibo in Model.Recibos)
+                        {
+                            <tr class="webgrid-row-style">
+                                <td class="webgrid-columns"><p>recibo.Data</p></td>
+                                <td class="webgrid-columns"><p>recibo.TipoPagamento</p></td>
+                                <td class="webgrid-columns">recibo.Valor</td>
+                                <td class="webgrid-columns">
+                                    <div class="pagination-centered">
+                                        <a role="button" class="btn btn-success" asp-controller="Holerite" asp-action="Index">Visualizar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }-->
+                    <tbody>
+                        <tr class="webgrid-row-style">
+                            <td class="webgrid-columns"><p>01/06/2023</p></td>
+                            <td class="webgrid-columns"><p>PAGAMENTO MENSAL</p></td>
+                            <td class="webgrid-columns">2.448,00</td>
+                            <td class="webgrid-columns">
+                                <div class="pagination-centered">
+                                    <a role="button" class="btn btn-success" asp-controller="Holerite" asp-action="Index">Visualizar</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="webgrid-alternating-row">
+                            <td class="webgrid-columns"><p>01/07/2023</p></td>
+                            <td class="webgrid-columns"><p>PAGAMENTO MENSAL</p></td>
+                            <td class="webgrid-columns">2.448,00</td>
+                            <td class="webgrid-columns">
+                                <div class="pagination-centered">
+                                    <a role="button" class="btn btn-success" asp-controller="Holerite" asp-action="Index">Visualizar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <!--}
+            else
+            {
+                <p>Nenhum recibo encontrado.</p>
+            }-->
+        </div>
+        <p>
+            <div class="mb-3">
+                <div class="d-flex flex-row bd-highlight mb-3">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary"> Voltar</a>
+                </div>
+            </div>
+        </p>
+    </section>
+</main>

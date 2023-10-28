@@ -1,0 +1,94 @@
+Claro, aqui está um tutorial passo a passo para conectar seu projeto ASP.NET MVC ao MySQL usando o Entity Framework.
+
+### Passo 1: Instalação do Entity Framework e MySQL Connector
+
+1. **Instale o Entity Framework:**
+
+   No Visual Studio, abra o Package Manager Console e digite o seguinte comando:
+
+   ```bash
+   Install-Package Microsoft.EntityFrameworkCore
+   ```
+
+2. **Instale o MySQL Connector:**
+
+   Você também precisará do MySQL Connector para o Entity Framework. No Package Manager Console, insira o comando:
+
+   ```bash
+   Install-Package MySql.Data.EntityFrameworkCore
+   ```
+
+### Passo 2: Configuração do Contexto de Dados
+
+1. **Crie uma classe de contexto de dados:**
+
+   Em seu projeto, crie uma classe que herda de `DbContext`. Esta classe será responsável por configurar as conexões e mapeamentos com o banco de dados.
+
+   Exemplo:
+
+   ```csharp
+   using Microsoft.EntityFrameworkCore;
+   using ProjetoFolha.Models; // Substitua pelo namespace do seu projeto
+
+   namespace ProjetoFolha.Data
+   {
+       public class ApplicationDbContext : DbContext
+       {
+           public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+           {
+           }
+
+           // Defina os DbSet para suas entidades aqui
+           public DbSet<RecibosDePagamentoModel> RecibosDePagamento { get; set; }
+           // ...
+       }
+   }
+   ```
+
+### Passo 3: Configuração da Conexão com o Banco de Dados
+
+1. **Configure a conexão no `appsettings.json`:**
+
+   Abra o arquivo `appsettings.json` e adicione uma nova seção para a conexão com o banco de dados MySQL:
+
+   ```json
+   "ConnectionStrings": {
+       "DefaultConnection": "server=localhost;database=autofolha;user=root;password=123321;"
+   }
+   ```
+
+   Substitua `"autofolha"`, `"root"` e `"123321"` pelos valores corretos.
+
+### Passo 4: Configuração do Serviço de Banco de Dados no Startup.cs
+
+1. **Configure o serviço do banco de dados no `Startup.cs`:**
+
+   No arquivo `Startup.cs`, adicione o seguinte código no método `ConfigureServices`:
+
+   ```csharp
+   services.AddDbContext<ApplicationDbContext>(options =>
+       options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+   );
+   ```
+
+### Passo 5: Criação e Migração do Banco de Dados
+
+1. **Crie e aplique as migrações:**
+
+   No Package Manager Console, execute os seguintes comandos:
+
+   ```bash
+   Add-Migration InitialCreate
+   ```
+
+   Este comando criará uma migração inicial baseada em seus modelos.
+
+   Em seguida, aplique a migração:
+
+   ```bash
+   Update-Database
+   ```
+
+   Isso criará o banco de dados no MySQL com base nas configurações do seu contexto de dados.
+
+Agora, seu projeto ASP.NET MVC está configurado para usar o MySQL com o Entity Framework. Lembre-se de substituir os placeholders pelos valores reais do seu banco de dados MySQL.

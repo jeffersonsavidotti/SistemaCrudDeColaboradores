@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Holerite";
+    Layout = "_LayoutMain";
+}
+@model HoleriteModel
+
+<style>
+    /* Estilos CSS para a formatação da tabela */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f0fff0; /* Verde claro para a tabela */
+    }
+
+    th, td {
+        border: 1px solid #008000; /* Verde escuro para as bordas */
+        text-align: left;
+        padding: 8px;
+        color: #008000; /* Verde escuro para texto */
+    }
+
+    tr:nth-child(even) {
+        background-color: #d0ffd0; /* Verde claro para linhas pares */
+    }
+
+    .pagetitle {
+        text-align: center;
+    }
+
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+        <div class="text-center">
+            <div class="pagetitle">
+                <h1 class="display-4">Holerite de Funcionário</h1>
+            </div>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    font-family: Arial, sans-serif;
+                }
+
+                th, td {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                }
+
+                .total-row {
+                    font-weight: bold;
+                }
+            </style>
+
+            <table>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Nome do Funcionário / Cargo</td>
+                    <td>Maria da Silva / Gerente de Vendas</td>
+                </tr>
+                <tr>
+                    <td>Salário Base</td>
+                    <td>R$ 4.200,00</td>
+                </tr>
+                <tr>
+                    <td>Horas Extras</td>
+                    <td>R$ 300,00</td>
+                </tr>
+                <tr>
+                    <td>Desconto INSS</td>
+                    <td>R$ 400,00</td>
+                </tr>
+                <tr>
+                    <td>Desconto IR</td>
+                    <td>R$ 120,00</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total de Vencimentos</td>
+                    <td>R$ 4.500,00</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total de Descontos</td>
+                    <td>R$ 520,00</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Salário Líquido</td>
+                    <td>R$ 3.980,00</td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            <div class="mb-3">
+                <div class="d-flex flex-row bd-highlight mb-3">
+                    <a asp-controller="RecibosDePag" asp-action="Index" class="btn btn-secondary"> Voltar</a>
+                </div>
+            </div>
+        </p>
+    </section>
+</main>
+
+
+
+

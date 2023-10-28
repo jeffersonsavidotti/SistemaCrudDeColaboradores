@@ -1,9 +1,10 @@
 use autofolha;
+-- criando usuario Master
 INSERT INTO `autofolha`.`cadastromodel` 
 (`Id`, `nome`, `cpf`, `cargo`, `AdmissaoData`, `email`, `senha`, `Sexo`, `salarioB`, `CadastroData`, `Perfil`) 
 VALUES ('1', 'Victor', '435.650.845-93', 'Desenvolvedor Sênior', '2023-10-20', 'victor@gmail.com', 'YWFh', 
 'Masculino', '15685', '2023-10-20 00:00:00.000000', '1');
-
+-- criando usuario Comum
 INSERT INTO `autofolha`.`cadastromodel` 
 (`Id`, `nome`, `cpf`, `cargo`, `AdmissaoData`, `email`, `senha`, `Sexo`, `salarioB`, `CadastroData`, `Perfil`) 
 VALUES ('2', 'Carina Freitas', '435.550.855-94', 'Engenheira de Software', '2023-12-25', 'carinafreitas@gmail.com', 'YWFh', 
